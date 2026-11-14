@@ -8,7 +8,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -138,6 +137,9 @@
       ];
     };
   };
+
+  # fixes many a game
+  hardware.opengl.enable = true;
 
   stylix.enable = true;
   stylix.autoEnable = true;
