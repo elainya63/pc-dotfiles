@@ -8,7 +8,6 @@ in {
     ./helix.nix
     ./foot.nix
     ./zsh.nix
-    ./music.nix
   ];
   
   home = {

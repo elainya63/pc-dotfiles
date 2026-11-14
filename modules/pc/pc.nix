@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./music.nix
   ];
   
   networking.hostName = "elaines-pc";
@@ -34,6 +35,10 @@
     };
   };
 
+  # keychron keyboard
+  hardware.keyboard.qmk.enable = true;
+  services.udev.packages = [ pkgs.keychron-udev-rules pkgs.via ];
+
   # maybe fix ethernet
   systemd.services.force-r8169 = {
     description = "Force load r8169 Realtek Driver";
@@ -46,4 +51,25 @@
       RemainAfterExit = true;
     };
   };
+
+  # persistent wifi hotspot
+  environment.systemPackages = [
+    pkgs.linux-wifi-hotspot
+  ];
+
+  # services.create_ap = {
+  #   enable = true;
+  #   settings = {
+  #     INTERNET_IFACE = "eno1";
+  #     WIFI_IFACE = "wlp11s0";
+  #     SSID = "elaines pc";
+  #     PASSPHRASE = "RichUniStudentz";
+  #   };
+  # };
+
+  # for hytale
+  services.flatpak.enable = true;
+
+  # need latest kernel for my chud wifi card
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }
