@@ -20,7 +20,8 @@ in {
       vesktop
       vlc
       gimp
-      libreoffice-fresh
+      libreoffice
+      element-desktop
 
       # parted
       p7zip
@@ -43,6 +44,7 @@ in {
       protontricks
       mcpelauncher-ui-qt
       prismlauncher
+
     ];
   };
 
